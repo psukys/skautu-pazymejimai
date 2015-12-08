@@ -1,0 +1,45 @@
+<div class="col-md-8 col-md-offset-2 forma">
+    <h3 class='text-center'>
+        <?php
+        if (isset($params["bukle_pagamintas"])) {
+            if ($params["bukle_pagamintas"] == true) {
+                echo "<span class='label label-success'>Pažymėjimas pagamintas</span>";
+            } else {
+                echo "<span class='label label-danger'>Pažymėjimas nepagamintas</span>";
+            }
+        }
+        ?>
+    </h3>
+    <div class="object-padding">
+        <table class='table table-striped table-header-rotated'>
+            <tr>
+                <th>Būsenos peržiūros kodas</th>
+                <td>
+                <strong><?php echo $params["bukle_id"];?></strong>
+                </td>
+            </tr>
+            <tr>
+                <th>Vardas</th>
+                <td><?php echo $params["bukle_vardas"]?></td>
+            </tr>
+            <tr>
+                <th>Pavardė</th>
+                <td><?php echo $params["bukle_pavarde"]?></td>
+            </tr>
+            <tr>
+                <th>Nuotrauka:</th>
+                <td><?php echo $params["bukle_nuotrauka"]?></td>
+            </tr>
+            <tr>
+                <th>Nario mokestis</th>
+                <td>
+                <?php echo $params["bukle_nario_mokestis"] ?>
+                </td>
+            </tr>
+            <tr>
+                <th>Gaminimo data</th>
+                <td><?php echo $params["bukle_gaminimo_data"]?></td>
+            </tr>
+        </table>
+    </div>
+</div>

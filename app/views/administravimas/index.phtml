@@ -1,0 +1,112 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">LS pažymėjimai</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/tikrinti?prašymai">Prašymų tikrinimas</a></li>
+                <li><a href="/tikrinti?nuotraukos">Nuotraukų tikrinimas</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gamyba <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/siusti?nuotraukos">Parsisiųsti nuotraukas</a></li>
+                        <li><a href="/siusti?prašymai">Parsisiųsti prašymus</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Prašymo paieška">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default">Ieškoti</button>
+                            </span>
+                        </div>
+                    </form>
+                </li>
+                <li><a href="atsijungimas">Atsijungti</a></li>
+            </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+</nav>
+
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <strong>Administravimas</strong>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">         
+                <div class="col-md-offset-3 col-xs-6 col-md-3">
+                    <div class="panel status panel-success">
+                        <div class="panel-heading">
+                            <h1 class="panel-title text-center">
+                                <?php
+                                echo $params["prasymai"]
+                                ?>
+                            </h1>
+                        </div>
+                        <div class="panel-body text-center">                        
+                            <strong>pateiktų prašymų</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel status panel-info">
+                        <div class="panel-heading">
+                            <h1 class="panel-title text-center">
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+                            <script type="text/javascript">
+                                //gamybos datos: spalio 1; gruodžio 1; kovo 1; birželio 1
+                                var gamybos_datos = [moment().month(2).date(1),
+                                                     moment().month(5).date(1),
+                                                     moment().month(9).date(1),
+                                                     moment().month(11).date(1)];
+                                var dabar = moment();
+                                /* Skaičiavimo logika:
+                                 * Atėmus dabartinį laiką (dabar) iš gamybos datos (gamybos_datos[i])
+                                 * Gaunamas teigiamas arba neigiamas rezultatas (milisekundės)
+                                 * gamybos_datos[i] - dabar = X
+                                 * Reikia: minimalaus teigiamo X
+                                 * Jei minimalus X - neigiamas, tada naudojami kiti metai (neigiamas,
+                                 * kai didesnis už visas kitas datas)
+                                 */
+                                var min = gamybos_datos[0] - dabar;// inicializacija
+                                for (var i = 1; i < gamybos_datos.length; i++) {
+                                    //jei neigiamas tiesiog priskiriam kit1
+                                    if (min < 0) {
+                                        min = gamybos_datos[i] - dabar;
+                                    } else {
+                                        var tmp = gamybos_datos[i] - dabar;
+                                        if (tmp >= 0 && tmp < min)
+                                            min = tmp;
+                                    }
+                                }
+                                if (min < 0)
+                                    min = gamybos_datos[0].month(12);
+                                document.write((min/1000/60/60/24).toFixed(0))
+                            </script>
+                            </h1>
+                        </div>
+                        <div class="panel-body text-center">                        
+                            <strong>dienos iki sekančios gamybos</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

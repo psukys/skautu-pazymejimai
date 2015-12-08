@@ -1,0 +1,26 @@
+<script type="text/javascript">
+function apdorotiBukle() {
+    var url = window.location + "bukle?id=" + document.getElementById("iduzsakymas").value;
+    location.href = url;
+    return false;
+}
+</script>
+
+<div class="col-md-6 col-md-offset-3 forma">
+    <h1>Sveiki, ką norite daryti?</h1>
+    <div class="object-padding">
+        <div class="col-lg-4">
+            <a href="/forma" type="button" class="btn btn-primary">Pildyti formą</a>
+        </div>
+        <div class="col-lg-8">
+            <form method="post" onSubmit="return apdorotiBukle();">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" title="ID: vardo ir pavardės pirmos raidės, pilna gimimo data">Peržvelgti užsakymo būklę</button>
+                    </span>
+                    <input id="iduzsakymas" name="iduzsakymas" placeholder="VP19990820" type="text" class="form-control">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

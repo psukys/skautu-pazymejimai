@@ -1,0 +1,206 @@
+            <div class="col-md-8 col-md-offset-2 forma">
+                <?php
+                if (isset($params["klaidos"])) {
+                    foreach($params["klaidos"] as $klaida) {
+                        echo '<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Klaida:</span>' . $klaida . '</div>';
+                    }
+                }
+                ?>
+                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        <!-- Formos pavadinimas -->
+                        <legend>Anketa Lietuvos skautijos nario pažymėjimui</legend>
+
+                        <!-- Vardas-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="vardas">Vardas</label>  
+                            <div class="col-md-4">
+                                <input id="vardas" name="vardas" placeholder="Vardenis" class="form-control input-md" required="" type="text" />
+                                <span class="help-block">Pilnas asmens vardas</span>  
+                            </div>
+                        </div>
+
+                        <!-- Pavardė-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="pavarde">Pavardė</label>  
+                            <div class="col-md-4">
+                                <input id="pavarde" name="pavarde" placeholder="Pavardenis" class="form-control input-md" required="" type="text" />
+                                <span class="help-block">Pilna asmens pavardė</span>  
+                            </div>
+                        </div>
+
+                        <!-- Gimimo data-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="data">Gimimo data</label>  
+                            <div class="col-md-4">
+                                <input id="data" name="data" placeholder="MMMM-mm-DD" class="form-control input-md" required="" type="text" />
+                                <span class="help-block">M - metai; m -mėnuo; D - diena</span>  
+                            </div>
+                        </div>
+
+                        <!-- Nuotrauka --> 
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="nuotrauka">Nuotrauka</label>
+                            <div class="col-md-4">
+                                <input id="nuotrauka" name="nuotrauka" class="input-file" type="file" />
+                                <span class="help-block">Nuotraukoje turite būti vienas/a, pageidautina, kad nuotrauka būtų portretinė. Dydis, ne daugiau 5 MB</span>
+                            </div>
+                        </div>
+
+                        <!-- Lytis -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="lytis">Lytis</label>
+                            <div class="col-md-4">
+                                <div class="radio">
+                                    <label for="lytis-0"><input name="lytis" id="lytis-0" value="vyras" checked="checked" type="radio" />Vyras</label>
+                                    
+                                </div>
+                                <div class="radio">
+                                    <label for="lytis-1"><input name="lytis" id="lytis-1" value="moteris" type="radio" />Moteris</label>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kaklaraištis -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="kaklaraistis">Kaklaraištis</label>
+                            <div class="col-md-4">
+                                <select id="kaklaraistis" name="kaklaraistis" class="form-control">
+                                    <option value="Dar neturiu">Dar neturiu</option>
+                                    <option value="Bebro">Bebro</option>
+                                    <option value="Jūrų skauto">Jūrų skauto</option>
+                                    <option value="Patyrusio jūrų skauto">Patyrusio jūrų skauto</option>
+                                    <option value="Jaunesniojo oro skauto">Jaunesniojo oro skauto</option>
+                                    <option value="Oro skauto">Oro skauto</option>
+                                    <option value="Patyrusio oro skauto">Patyrusio oro skauto</option>
+                                    <option value="Jaunesniojo skauto">Jaunesniojo skauto</option>
+                                    <option value="Skauto">Skauto</option>
+                                    <option value="Patyrusio skauto">Patyrusio skauto</option>
+                                    <option value="Vyresniosios skautės">Vyresniosios skautės</option>
+                                    <option value="Skauto vyčio">Skauto vyčio</option>
+                                    <option value="Budžio">Budžio</option>
+                                    <option value="Gintarės">Gintarės</option>
+                                    <option value="Suaugusiojo skautybėje">Suaugusiojo skautybėje</option>
+                                    <option value="Skautininko">Skautininko</option>
+                                    <option value="Gilvelininko">Gilvelininko</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Pareigos -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="pareigos[]">Pareigos</label>
+                            <div class="col-md-4">
+                                <div class="checkbox">
+                                    <label for="pareigos-0"><input name="pareigos[]" id="pareigos-0" value="Narys" type="checkbox" />Narys</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-1"><input name="pareigos[]" id="pareigos-1" value="Tarybos narys" type="checkbox" />Tarybos narys</label>
+                                    
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-2"><input name="pareigos[]" id="pareigos-2" value="Etikos komisijos narys" type="checkbox" />Etikos komisijos narys</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-3"><input name="pareigos[]" id="pareigos-3" value="Kontrolės komisijos narys" type="checkbox" />Kontrolės komisijos narys</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-4"><input name="pareigos[]" id="pareigos-4" value="Pirmijos narys" type="checkbox" />Pirmijos narys</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-5"><input name="pareigos[]" id="pareigos-5" value="Krašto seniūnas" type="checkbox" />Krašto seniūnas</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-6"><input name="pareigos[]" id="pareigos-6" value="Krašto seniūno pavaduotojas" type="checkbox" />Krašto seniūno pavaduotojas</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-7"><input name="pareigos[]" id="pareigos-7" value="Konferencijos pirmininkas" type="checkbox" />Konferencijos pirmininkas</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-8"><input name="pareigos[]" id="pareigos-8" value="Konferecijos pirmininko pav." type="checkbox" />Konferecijos pirmininko pav.</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-9"><input name="pareigos[]" id="pareigos-9" value="Tuntininkas" type="checkbox" />Tuntininkas</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-10"><input name="pareigos[]" id="pareigos-10" value="Tuntininko pavaduotojas" type="checkbox" />Tuntininko pavaduotojas</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-11"><input name="pareigos[]" id="pareigos-11" value="Draugininkas" type="checkbox" />Draugininkas</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="pareigos-12"><input name="pareigos[]" id="pareigos-12" value="Draugininko pavaduotojas" type="checkbox" />Draugininko pavaduotojas</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kraštas -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="krastas">Kraštas</label>
+                            <div class="col-md-4">
+                                <select id="krastas" name="krastas" class="form-control">
+                                    <option value="Vilnius">Vilnius</option>
+                                    <option value="Kaunas">Kaunas</option>
+                                    <option value="Klaipėda">Klaipėda</option>
+                                    <option value="Šiauliai">Šiauliai</option>
+                                    <option value="Panevėžys">Panevėžys</option>
+                                    <option value="Marijampolė">Marijampolė</option>
+                                    <option value="Utena">Utena</option>
+                                    <option value="Tauragė">Tauragė</option>
+                                    <option value="Telšiai">Telšiai</option>
+                                    <option value="Alytus">Alytus</option>
+                                    <option value="Jūrų skautų konferencija">Jūrų skautų konferencija</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Tuntas-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="tuntas">Tuntas</label>  
+                            <div class="col-md-4">
+                                <input id="tuntas" name="tuntas" placeholder="" class="form-control input-md" required="" type="text" />
+                            </div>
+                        </div>
+
+                        <!-- Draugovė-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="draugove">Draugovė</label>  
+                            <div class="col-md-4">
+                                <input id="draugove" name="draugove" placeholder="" class="form-control input-md" required="" type="text" />
+                            </div>
+                        </div>
+
+                        <!-- Adresas-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="adresas">Adresas</label>  
+                            <div class="col-md-4">
+                                <input id="adresas" name="adresas" placeholder="Trakų g. 18, Kaunas" class="form-control input-md" required="" type="text" />
+                                <span class="help-block">Gatvė ir Miestas</span>  
+                            </div>
+                        </div>
+
+                        <!-- El. paštas-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="el_pastas">El. Paštas</label>  
+                            <div class="col-md-4">
+                                <input id="el_pastas" name="el_pastas" placeholder="vardenis@pavardenis.lt" class="form-control input-md" type="text">
+                                <span class="help-block">Susisiekimui</span>  
+                            </div>
+                        </div>
+
+                        <!-- Telefonas-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="telefon_numeris">Telefono nr.</label>  
+                            <div class="col-md-4">
+                                <input id="telefono_numeris" name="telefono_numeris" placeholder="861234567" class="form-control input-md" type="text">
+                                <span class="help-block">Susisiekimui</span>  
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-default">Siųsti</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>

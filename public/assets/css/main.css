@@ -1,0 +1,53 @@
+body
+{
+    margin: 1%;
+    background-image: url('../img/bg.png');
+    background-image: repeat-both;
+}
+
+.form-actions 
+{
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.forma
+{
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #FFF;
+}
+.object-padding
+{
+    padding-top: 2em;
+    padding-bottom: 5em;
+}
+
+img
+{
+    max-width: 100px;
+    max-height: 100px;
+}
+
+table
+{
+    margin: 5px auto;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900|Oswald);
+body{
+    padding: 50px 0;
+}
+.status {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.status .panel-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 45px;
+    padding-top: 20px;
+    letter-spacing: -0.8px;
+}
